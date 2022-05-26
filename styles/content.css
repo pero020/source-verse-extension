@@ -2,10 +2,30 @@
   color: black;
 }
 
-#rating-div {
-  background-color: #dddddd;
-  border-radius: 5px;
-  position: absolute;
-  z-index: 2;
-  padding: 5px;
+.personal-h4 {
+  color: black;
+  font-size: 0.8rem;
 }
+
+div {
+  overflow: visible !important;
+}
+
+#rating-div {
+  display: inline;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  text-align: center;
+  position: absolute;
+  z-index: 10;
+  padding: 5px;
+  border: 1px solid #50eb82;
+}
+
+#rating-div hr {
+  border-color: #50eb82;
+  border-style: dotted none none none;
+  border-width: 8px;
+  width: 48px;
+}
+

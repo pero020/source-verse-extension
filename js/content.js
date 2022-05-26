@@ -19,8 +19,15 @@ const getDomain = (url) => {
 
 const renderReview = (data, link) => {
   if (data === "trustworthy") {
-    console.log("rendering trustworthy")
     $(link).css({"color": "#50eb82"})
+
+    $(link).hover(function() {
+      $(link).append(`
+        <div id="rating-div"><h4 class="personal-h4">Personal Trustworthy Domain list item</h4></div>`)
+      }, function() {
+        $("#rating-div").remove();
+      });
+
     return 1;
   }
 
@@ -30,17 +37,16 @@ const renderReview = (data, link) => {
 
   if (data.score > 4) {
     $(link).css({"color": "#50eb82"})
-  } else if (data.score > 3) {
+  } else if (data.score > 2.5) {
     $(link).css({"color": "orange"})
   } else {
-    console.log("rendering red")
     $(link).css({"color": "#f44336"})
   }
   $(link).hover(function() {
     $(link).append(`
       <div id="rating-div"><h4>Score: ${data.score}</h4></div>`)
     data.reviews.forEach((review) => {
-      $("#rating-div").append(`<p class='hovered-rating'>${review.description}</p>`)
+      $("#rating-div").append(`<hr><p class='hovered-rating'>${review.description}</p>`)
     });
     }, function() {
       $("#rating-div").remove();
@@ -98,7 +104,6 @@ const setLinks = () => {
       }
       const data = await res.json();
       dataList.push(data)
-      console.log(data + "123")
       renderReview(data, link)
     }
 
