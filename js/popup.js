@@ -35,9 +35,6 @@ $(function() {
       });
     })
   })
-  $("#reset-url-list-btn").click(function() {
-    chrome.storage.sync.clear();
-  })
   $("#remove-url-btn").click(function() {
     chrome.storage.sync.get(["trustworthyList"], function (result) {
       if (!result.trustworthyList) {
