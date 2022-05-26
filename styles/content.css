@@ -1,0 +1,11 @@
+.hovered-rating {
+  color: black;
+}
+
+#rating-div {
+  background-color: #dddddd;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
+  padding: 5px;
+}

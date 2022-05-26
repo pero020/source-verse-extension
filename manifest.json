@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "My Chrome Extension",
+  "version": "1.0",
+  "description": "SourceVerse-ext",
+  "icons": {
+    "128":"images/icon128.png",
+     "48":"images/icon48.png",
+     "16":"images/icon16.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon16.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["utility/jquery-3.6.0.min.js", "js/content.js"],
+      "css": ["styles/content.css"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "storage"
+  ]
+}
