@@ -7,10 +7,6 @@
   font-size: 0.8rem;
 }
 
-div {
-  overflow: visible !important;
-}
-
 #rating-div {
   display: inline;
   background-color: #f2f2f2;
