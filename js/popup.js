@@ -27,7 +27,7 @@ $(function() {
         let currDomain = getDomain(currUrl)
         console.log(currDomain)
 
-        const res = await fetch("http://localhost:3000/api/domainReviews/newCommunityVote/", {
+        const res = await fetch("https://source-verse.herokuapp.com/api/domainReviews/newCommunityVote/", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ $(function() {
         let currDomain = getDomain(currUrl)
         console.log(currDomain)
 
-        const res = await fetch("http://localhost:3000/api/domainReviews/newCommunityVote/", {
+        const res = await fetch("https://source-verse.herokuapp.com/api/domainReviews/newCommunityVote/", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

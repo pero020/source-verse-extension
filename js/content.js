@@ -25,7 +25,7 @@ const renderReview = (data, link) => {
   if (data.score === 0) {
     $(link).hover(function() {
       $("body").append(`
-      <div style="position: absolute; left:${$(link).offset().left + $(link).width()}px; top:${$(link).offset().top + $(link).height()}px" id="rating-div">
+      <div style="position: fixed; right: 50px; bottom: 50px" id="rating-div">
         <h4 id="no-reviews-h4">No Specialist Reviews Yet</h4>
         <h4 id="community-approved-h4">Community Approved: ${data.communityVotes.length}</h4>
         </div>
@@ -48,7 +48,7 @@ const renderReview = (data, link) => {
   
   $(link).hover(function() {
     $("body").append(`
-      <div style="position: absolute; left:${$(link).offset().left + $(link).width()}px; top:${$(link).offset().top + $(link).height()}px" id="rating-div">
+      <div style="position: fixed; right: 50px; bottom: 50px" id="rating-div">
       <h4>Score: ${data.score}</h4>
       <h4 id="community-approved-h4">Community Approved: ${data.communityVotes.length}</h4>
       </div>
