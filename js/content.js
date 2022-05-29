@@ -18,33 +18,42 @@ const getDomain = (url) => {
 }
 
 const renderReview = (data, link) => {
-  if (data === "trustworthy") {
-    $(link).css({"color": "#50eb82"})
-
-    $(link).hover(function() {
-      $(link).append(`
-        <div id="rating-div"><h4 class="personal-h4">Personal Trustworthy Domain list item</h4></div>`)
-      }, function() {
-        $("#rating-div").remove();
-      });
-
-    return 1;
-  }
-
   if (data.score === -1) {
     return 1;
   }
 
+  if (data.score === 0) {
+    $(link).hover(function() {
+      $("body").append(`
+      <div style="position: absolute; left:${$(link).offset().left + $(link).width()}px; top:${$(link).offset().top + $(link).height()}px" id="rating-div">
+        <h4 id="no-reviews-h4">No Specialist Reviews Yet</h4>
+        <h4 id="community-approved-h4">Community Approved: ${data.communityVotes.length}</h4>
+        </div>
+        `)
+
+    }, function() {
+      $("#rating-div").remove();
+    });
+
+    return 1;
+  }
+
   if (data.score > 4) {
-    $(link).css({"color": "#50eb82"})
+    $(link).css({"color": "#3ebd66"})
   } else if (data.score > 2.5) {
     $(link).css({"color": "orange"})
   } else {
     $(link).css({"color": "#f44336"})
   }
+  
   $(link).hover(function() {
-    $(link).append(`
-      <div id="rating-div"><h4>Score: ${data.score}</h4></div>`)
+    $("body").append(`
+      <div style="position: absolute; left:${$(link).offset().left + $(link).width()}px; top:${$(link).offset().top + $(link).height()}px" id="rating-div">
+      <h4>Score: ${data.score}</h4>
+      <h4 id="community-approved-h4">Community Approved: ${data.communityVotes.length}</h4>
+      </div>
+      
+      `)
     data.reviews.forEach((review) => {
       $("#rating-div").append(`<hr><p class='hovered-rating'>${review.description}</p>`)
     });
@@ -54,11 +63,9 @@ const renderReview = (data, link) => {
     
 }
 
-const setLinks = () => {
-  let trustworthyList
+const setLinks = async () => {
+
   let found = false
-  chrome.storage.sync.get(["trustworthyList"], async function (result) {
-    trustworthyList = result.trustworthyList
 
     let dataList = []
     for (const link of linksList) {
@@ -67,19 +74,6 @@ const setLinks = () => {
       if (!url) {
         continue;
       }
-      if (trustworthyList) {
-        for (const domain of trustworthyList) {
-          if (domain === url) {
-            renderReview("trustworthy", link)
-            found = true;
-            break;
-          }
-        }
-        if (found) {
-          continue;
-        }
-      }
-      
 
       for (const data of dataList) {
         if (data.url === url) {
@@ -107,7 +101,7 @@ const setLinks = () => {
       renderReview(data, link)
     }
 
-  })
+  // })
  
 }
 

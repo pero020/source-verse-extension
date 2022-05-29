@@ -4,12 +4,23 @@ body {
 .content {
   text-align: center
 }
+
 button {
   margin: 0 auto;
   margin-top: 5px;
 }
 
-#save-url-btn {
-  display: block;
-  padding: 5px 15px 5px 15px;
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#save-url-img {
+  display: inline;
+  width: 25%;
+}
+
+#remove-url-img {
+  display: inline;
+  width: 20%;
 }
