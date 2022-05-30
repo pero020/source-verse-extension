@@ -76,4 +76,10 @@ $(function() {
       });
     })
   })
+
+  $(".button-68").click(function() {
+    console.log("hello")
+    chrome.tabs.create({url: "https://source-verse.herokuapp.com/learn"});
+    return false;
+  })
 });

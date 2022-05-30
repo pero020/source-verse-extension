@@ -27,5 +27,8 @@
     "tabs",
     "storage",
     "identity", "identity.email"
+  ],
+  "web_accessible_resources" : [
+    "images/*.svg"
   ]
 }
