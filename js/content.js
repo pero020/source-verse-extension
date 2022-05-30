@@ -28,9 +28,9 @@ const renderReview = (data, link) => {
     $(link).hover(function() {
       $("body").append(`
       <div style="position: fixed; right: 50px; bottom: 50px" id="rating-div">
-      <h2>Domain review:</h2>
+      <h2 id="domain-h2">Domain review:</h2>
       <div>
-        <p>No Specialist Score yet</p>
+        <p class='hovered-rating'>No Specialist Score yet</p>
       </div>
       <div>
         <h4 id="community-approved-h4">Community Approved by:</h4> <h4 id="community-score-h4">${data.communityVotes.length}</h4> <h4 id="community-approved-h4"> ${data.communityVotes.length === 1 ? "user": "users"}</h4>
@@ -55,7 +55,7 @@ const renderReview = (data, link) => {
   $(link).hover(function() {
     $("body").append(`
       <div style="position: fixed; ${$(link).offset().left < 1256 ? "right" : "left"}: 50px; bottom: 50px" id="rating-div">
-        <h2>Domain review:</h2>
+        <h2 id="domain-h2">Domain review:</h2>
         <hr/>
         <div>
           <h4 id="specialists-score">Specialist's score:</h4> <h4 id="score-h4">${data.score} </h4><h4 id="out-of-five-h4"> / 5</h4>
@@ -84,7 +84,7 @@ const renderReview = (data, link) => {
     }
     
     if (data.reviews.length != 0) {
-      $("#rating-div").append(`<p><strong>Recent reviews:</strong></p><hr>`)
+      $("#rating-div").append(`<p class='hovered-rating'><strong>Recent reviews:</strong></p><hr>`)
     }
     count = 0;
     for (const review of data.reviews) {
