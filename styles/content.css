@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-p {
-  font-size: 14px;
-  color: white;
+h2 {
+  font-size: 24px !important;
+  border-bottom: none !important;
+  margin-bottom: 15px  !important;
+  color: white !important;
 }
 
 h4 {
-  font-size: 18px;
-  color: white;
+  font-size: 18px !important;
+  margin-bottom: 15px !important;
+}
+
+p {
+  font-size: 14px !important;
+  margin-bottom: 15px  !important;
 }
 
 #rating-div {
   line-height: 1;
   font-family: 'Roboto', sans-serif;
-  min-width: 250px;
+  min-width: 300px;
   display: inline;
   background-color: #143b20;
   color: white;
@@ -31,6 +38,7 @@ h4 {
   margin-bottom: 20px;
   margin-right: 10px;
   display: inline-block;
+  color: white !important;
 }
 
 #score-h4 {
@@ -50,6 +58,7 @@ h4 {
   margin-bottom: 25px;
   margin-right: 10px;
   display: inline-block;
+  color: white !important;
 }
 
 #rating-div hr {
@@ -63,6 +72,8 @@ h4 {
 
 #out-of-five-h4 {
   display: inline-block;
+  margin-bottom: 20px;
   margin-left: 5px;
+  color: white !important;
 }
 
