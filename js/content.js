@@ -104,12 +104,13 @@ const setLinks = async () => {
   blackList = ["google.com", "google.hr"]
 
   let found = false
+  let currDomain = getDomain(window.location.href);
 
     let dataList = []
     for (const link of linksList) {
       found = false;
       let url = getDomain(link.href);
-      if (!url) {
+      if (!url || url == currDomain) {
         continue;
       }
 
